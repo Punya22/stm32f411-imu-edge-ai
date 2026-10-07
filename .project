@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>stm32f411xx_drivers</name>
+	<name>stm32f411-imu-edge-ai</name>
 	<comment></comment>
 	<projects>
 	</projects>

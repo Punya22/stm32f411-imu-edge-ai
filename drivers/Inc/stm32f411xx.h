@@ -523,5 +523,36 @@ do{ \
     RCC->APB2RSTR |= (1 << 5); \
     RCC->APB2RSTR &= ~(1 << 5); \
 }while(0)
+/****************************************************
+ * TIM2 register definition (general purpose timer)
+ ****************************************************/
+typedef struct
+{
+	__vo uint32_t CR1;       /* 0x00 */
+	__vo uint32_t CR2;       /* 0x04 */
+	__vo uint32_t SMCR;      /* 0x08 */
+	__vo uint32_t DIER;      /* 0x0C */
+	__vo uint32_t SR;        /* 0x10 */
+	__vo uint32_t EGR;       /* 0x14 */
+	__vo uint32_t CCMR1;     /* 0x18 */
+	__vo uint32_t CCMR2;     /* 0x1C */
+	__vo uint32_t CCER;      /* 0x20 */
+	__vo uint32_t CNT;       /* 0x24 */
+	__vo uint32_t PSC;       /* 0x28 */
+	__vo uint32_t ARR;       /* 0x2C */
+	uint32_t      RESERVED0; /* 0x30 */
+	__vo uint32_t CCR1;      /* 0x34 */
+	__vo uint32_t CCR2;      /* 0x38 */
+	__vo uint32_t CCR3;      /* 0x3C */
+	__vo uint32_t CCR4;      /* 0x40 */
+	uint32_t      RESERVED1; /* 0x44 */
+	__vo uint32_t DCR;       /* 0x48 */
+	__vo uint32_t DMAR;      /* 0x4C */
+	__vo uint32_t OR;        /* 0x50 */
+} TIM_RegDef_t;
 
+#define TIM2            ((TIM_RegDef_t*)TIM2_BASEADDR)
+#define TIM2_PCLK_EN()  ( RCC->APB1ENR |= (1 << 0) )
+#define TIM2_PCLK_DI()  ( RCC->APB1ENR &= ~(1 << 0) )
+#define IRQ_NO_TIM2     28
 #endif /* INC_STM32F411XX_H_ */
